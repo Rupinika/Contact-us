@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Form from './components/Form';
+import React, { useState } from 'react';
 
 function App() {
+  const [theme, settheme] = useState("light")
+  function changeTheme() {
+    if (theme === "light") {
+      settheme("dark")
+    }
+    else {
+      settheme("light")
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar theme={theme} changeTheme={changeTheme} />
+      <Form />
     </div>
   );
 }
